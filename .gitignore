@@ -1,0 +1,6 @@
+/phpunit.functional.xml
+/phpunit.xml
+/vendor/
+composer.lock
+*.phar
+*.zip

@@ -1,0 +1,24 @@
+{
+  "name": "affiliate-linkr/commission-junction-api-client-php",
+  "homepage": "http://www.affiliatelinkr.com",
+  "description": "Commission Junction PHP Client API Library",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jeremy Zerr",
+      "homepage": "http://www.jeremyzerr.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.4"
+  },
+  "autoload": {
+    "psr-0": {
+      "AffiliateLinkr": "src/"
+    }
+  }
+}

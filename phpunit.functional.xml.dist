@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./tests/bootstrap.php"
+         colors="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader">
+
+    <testsuites>
+        <testsuite name="Aws">
+            <directory>./tests/AffiliateLinkr/Tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Only execute integration and performance tests -->
+    <groups>
+        <include>
+            <group>integration</group>
+            <group>performance</group>
+        </include>
+    </groups>
+
+</phpunit>
