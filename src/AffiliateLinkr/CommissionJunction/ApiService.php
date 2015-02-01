@@ -10,7 +10,7 @@ class ApiService {
     $this->xmlout = null;
   }
   
-  public function linkSearch(ApiClient $client, LinkSearch\Request $request) {
+  public function linkSearch(ApiCredentials $credentials, LinkSearch\Request $request) {
     $url_linksearch = 'https://linksearch.api.cj.com/v2/link-search?';
 
     $isSuccess = 1;
@@ -26,7 +26,7 @@ class ApiService {
  
    $this->xmlout = '';
     try {
-      $this->xmlout = $this->_query($url_linksearch, $client->getDeveloperKey(), $queryParameters);
+      $this->xmlout = $this->_query($url_linksearch, $credentials->getDeveloperKey(), $queryParameters);
     } catch (\Exception $e) {
       throw $e;
     }
