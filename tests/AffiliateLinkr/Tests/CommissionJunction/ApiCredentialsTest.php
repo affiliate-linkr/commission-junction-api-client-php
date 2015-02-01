@@ -33,7 +33,7 @@ class ApiCredentialsTest extends \PHPUnit_Framework_TestCase {
 
     $this->assertNotNull($oApiCredentials);
     
-    $this->assertEquals("FOO", $oApiCredentials->getDeveloperKey());
+    $this->assertEquals("FOOKEY", $oApiCredentials->getDeveloperKey());
     
   }  
   
@@ -41,7 +41,7 @@ class ApiCredentialsTest extends \PHPUnit_Framework_TestCase {
     // test the ini file pulling when there are no environment variables set
     // set home directory
     $_SERVER['HOME'] = dirname(__FILE__);
-    $varInFile = "FOO";
+    $varInFile = "FOOKEY";
     $oApiCredentials = \AffiliateLinkr\CommissionJunction\ApiCredentials::factory();
 
     $this->assertNotNull($oApiCredentials);
@@ -55,13 +55,16 @@ class ApiCredentialsTest extends \PHPUnit_Framework_TestCase {
     // set home directory that would be necessary for a file
     $_SERVER['HOME'] = dirname(__FILE__);
     // set the environment variable, this is what it should be set to
-    $envVarName = \AffiliateLinkr\CommissionJunction\ApiCredentials::ENV_KEY;
-    $_SERVER[$envVarName] = "BAR";
+    $envVarKey = \AffiliateLinkr\CommissionJunction\ApiCredentials::ENV_KEY;
+    $envVarSite = \AffiliateLinkr\CommissionJunction\ApiCredentials::ENV_SITE;
+    $_SERVER[$envVarKey] = "BARKEY";
+    $_SERVER[$envVarSite] = "FOOSITE";
     $oApiCredentials = \AffiliateLinkr\CommissionJunction\ApiCredentials::factory();
 
     $this->assertNotNull($oApiCredentials);
     
-    $this->assertEquals($_SERVER[$envVarName], $oApiCredentials->getDeveloperKey());
+    $this->assertEquals($_SERVER[$envVarKey], $oApiCredentials->getDeveloperKey());
+    $this->assertEquals($_SERVER[$envVarSite], $oApiCredentials->getWebsiteId());
     
   }   
   

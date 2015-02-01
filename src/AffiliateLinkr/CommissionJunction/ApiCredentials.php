@@ -5,22 +5,33 @@ namespace AffiliateLinkr\CommissionJunction;
 class ApiCredentials {
   
   const ENV_KEY = 'CJ_DEVELOPER_KEY';
-  const CREDENTIALS_FILE = '.affiliatelinkr/credentials';
-  const CREDENTIALS_FILE_PROFILE = "Commission Junction";
+  const ENV_SITE = 'CJ_WEBSITE_ID';
+  const CREDENTIALS_FILE = '.affiliatelinkr/cj';
+  const CREDENTIALS_FILE_PROFILE = "Default";
   
   private $developerKey;
+  private $websiteId;
   
-  function __construct($developerKey = null) {
+  function __construct($developerKey = null, $websiteId = null) {
     $this->setDeveloperKey($developerKey);
+    $this->setWebsiteId($websiteId);
   }
   
   function setDeveloperKey($value) {
-    $this->developerKey = $value;
+    $this->developerKey = trim($value);
   }
   
   function getDeveloperKey() {
     return $this->developerKey;
   }
+  
+  function setWebsiteId($value) {
+    $this->websiteId = trim($value);
+  }
+  
+  function getWebsiteId() {
+    return $this->websiteId;
+  }  
   
   /**
    * Factory method for creating new credentials. This factory method will
@@ -32,10 +43,10 @@ class ApiCredentials {
    */
   public static function factory($config = array()) {
     // Create the credentials object
-    if (!isset($config[self::ENV_KEY])) {
+    if (!isset($config[self::ENV_KEY]) || !isset($config[self::ENV_SITE])) {
       $credentials = self::createFromEnvironment($config);
     } else {
-      $credentials = new ApiCredentials();
+      $credentials = new self($config[self::ENV_KEY], $config[self::ENV_SITE]);
     }
     return $credentials;
   }
@@ -52,10 +63,11 @@ class ApiCredentials {
   private static function createFromEnvironment($config = array()) {
     // Get key from ENV variables
     $envKey = self::getEnvVar(self::ENV_KEY);
+    $envSite = self::getEnvVar(self::ENV_SITE);
 
     // Use credentials from the environment variables if available
-    if ($envKey) {
-      return new self($envKey);
+    if ($envKey && $envSite) {
+      return new self($envKey, $envSite);
     }
     
     // Use credentials from the ini file in HOME directory if available
@@ -72,7 +84,7 @@ class ApiCredentials {
    * credentials files. If null is passed, the
    * SDK will attempt to find the configuration
    * file at in your HOME directory at
-   * ~/.affiliatelinkr/credentials.
+   * ~/.affiliatelinkr/cj.
    * @return ApiCredentials
    * @throws \RuntimeException if the file cannot be found, if the file is
    * invalid, or if the profile is invalid.
@@ -89,7 +101,8 @@ class ApiCredentials {
       throw new \RuntimeException("Invalid Commission Junction credentials profile {$profile} in {$filename}.");
     }
     return new self(
-      $data[$profile][self::ENV_KEY]
+      $data[$profile][self::ENV_KEY],
+      $data[$profile][self::ENV_SITE]
     );
   }  
   
