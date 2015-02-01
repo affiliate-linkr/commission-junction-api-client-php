@@ -15,6 +15,15 @@ class ApiCredentialsTest extends \PHPUnit_Framework_TestCase {
 
     $this->assertNotNull($oApiCredentials);
   }
+  
+  public function testApiCredentialsCreationWithKey() {
+    // create client
+    $testKey = "TEST";
+    $oApiCredentials = new \AffiliateLinkr\CommissionJunction\ApiCredentials($testKey);
+
+    $this->assertNotNull($oApiCredentials);
+    $this->assertEquals($testKey, $oApiCredentials->getDeveloperKey());
+  }  
 
   public function testApiCredentialsFromFile() {
     // test just the ini file pulling
