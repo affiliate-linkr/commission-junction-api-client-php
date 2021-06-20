@@ -1,0 +1,7 @@
+[Default]
+CJ_DEVELOPER_KEY = FOOKEY
+CJ_WEBSITE_ID = BARSITE 
+[Default]
+CJ_DEVELOPER_KEY =  eyJhbGciOiJIUzI1NiIXVCJ9
+CJ_WEBSITE_ID = 'https://developers.cj.com/graphql/reference/Commission%20Detail`
+
