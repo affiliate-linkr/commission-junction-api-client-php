@@ -14,7 +14,7 @@ or for anyone who needs commission data updated on a regular basis
 
 We offer a variety of search criteria, such as posting date range, ad ids, action statuses, etc.
 
-Sample Request
+Request
 curl -H "Authorization: Bearer <eyJhbGciOiJIUzI1NiIXVCJ9>    
   -XPOST https://commissions.api.cj.com/query -d 
   '{ publisherCommissions(forPublishers: ["999"],
