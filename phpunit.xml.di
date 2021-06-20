@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="./tests/bootstrap.php"
+# - <xml version="1.0" encoding="UTF-8">
+# - <phpunit bootstrap="./tests/bootstrap.php"
          colors="true"
          processIsolation="false"
          stopOnFailure="false"
@@ -11,16 +11,22 @@
 
     <testsuites>
         <testsuite name="Aws">
-            <directory>./tests/AffiliateLinkr/Tests</directory>
+            <directory>tests/AffiliateLinkr/Tests</directory>
         </testsuite>
     </testsuites>
 
-    <!-- Only execute integration and performance tests -->
+    <!-- Exclude the integration tests in regular unit tests -->
     <groups>
-        <include>
+        <exclude>
             <group>integration</group>
             <group>performance</group>
-        </include>
+        </exclude>
     </groups>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src/AffiliateLinkr</directory>
+        </whitelist>
+    </filter>
 
 </phpunit>
