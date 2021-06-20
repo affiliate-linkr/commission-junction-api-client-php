@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="./tests/bootstrap.php"
+# - <xml version="1.0" encoding="UTF-8"?>
+# - <phpunit bootstrap="./tests/bootstrap.php"
          colors="true"
          processIsolation="false"
          stopOnFailure="false"
@@ -15,7 +15,7 @@
         </testsuite>
     </testsuites>
 
-    <!-- Only execute integration and performance tests -->
+    <-- Only execute integration and performance tests -->
     <groups>
         <include>
             <group>integration</group>
