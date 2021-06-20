@@ -6,8 +6,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Jeremy Zerr",
-      "homepage": "http://www.jeremyzerr.com"
+      "name": "Michael Glenn",
+      "homepage": "http://invest86llc.net"
     }
   ],
   "require": {
