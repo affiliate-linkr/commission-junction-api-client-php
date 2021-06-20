@@ -1,5 +1,28 @@
-<?php
+# - .php
+Commission Detail API Reference
+URL: https://commissions.api.cj.com/query
 
+The Commission Detail API is a GraphQL API
+
+available to both Advertisers and publishers 
+
+to access nearly real-time commission data from their accounts.
+
+This is useful for anyone who wants the freshest commission data available
+
+or for anyone who needs commission data updated on a regular basis
+
+We offer a variety of search criteria, such as posting date range, ad ids, action statuses, etc.
+
+Sample Request
+curl -H "Authorization: Bearer <eyJhbGciOiJIUzI1NiIXVCJ9>    
+  -XPOST https://commissions.api.cj.com/query -d 
+  '{ publisherCommissions(forPublishers: ["999"],
+  sincePostingDate:"2018-08-08T00:00:00Z",b
+  beforePostingDate"2021-20-06 T12:06:00Z"){count payloadComplete records
+
+ {actionTrackerName websiteName advertiserName postingDate pubCommissionAmountUsd items 
+  { quantity perItemSaleAmountPubCurrency totalCommissionPubCurrency }  }  } }'
 namespace AffiliateLinkr\CommissionJunction\LinkSearch;
 
 class Request {
