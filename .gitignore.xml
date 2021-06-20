@@ -2,5 +2,5 @@
 /phpunit.xml
 /vendor/
 composer.lock
-*.phar
-*.zip
+$.phar
+$.zip
