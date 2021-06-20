@@ -5,4 +5,4 @@ HTTP request that contains the authorization type
 
 ### Authorization HTTP header:
 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIXVCJ9
+Authorization: BigGuy573/commission-junction-api-client-php: r31h8hxpfbnra16m76kwcm5v0
